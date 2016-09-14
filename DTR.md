@@ -81,7 +81,7 @@ Laura
 Dale
 * Don't give criticism.
 * Tend to focus on the future
-* Stay focused on the problem at everything is alright.
+* Stay focused on the problem and everything will be alright.
 
 ## Technical Skills and Strengthening Opportunities
 Laura
@@ -91,7 +91,7 @@ Laura
 
 Dale
 * Good with Git, terminal, tech stack.
-* Good at organizing the /code.
+* Good at organizing the code.
 * Strengthening JavaScript.
 
 ## What Tools for Project Management
