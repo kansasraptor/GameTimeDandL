@@ -1,0 +1,22 @@
+html, body {
+  font-family: 'Amatic SC', cursive;
+}
+
+/*body {
+  margin-left: 25px;
+  margin-right: 25px;
+  width: 450px;
+}*/
+
+h1, section {
+  text-align: center;
+}
+
+div, button {
+  margin: auto;
+}
+
+h1 {
+  font-size: 48px;
+  margin-top: 50px;
+}
