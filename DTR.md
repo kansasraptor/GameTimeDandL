@@ -14,63 +14,63 @@ Dale:
 
 ## Collaboration and Independent Work Balance
 
- Laura:
- * Like pair programming for most of the work being done.
- * Some independent worktime is okay.
- * Call in experts (instructors and 1608) when needed.
+Laura:
+* Like pair programming for most of the work being done.
+* Some independent worktime is okay.
+* Call in experts (instructors and 1608) when needed.
 
- Dale:
- * Like pair programming
- * If I do independent work, will communicate before rolling in.
- * One keyboard driver at time, other pair can only research on the other computer.
- * I am okay with disagreement, but don't disagreeable.
+Dale:
+* Like pair programming
+* If I do independent work, will communicate before rolling in.
+* One keyboard driver at time, other pair can only research on the other computer.
+* I am okay with disagreement, but don't disagreeable.
 
- ## Workstyle
+## Workstyle
 
- Laura
- * Believe in the pomodoro technique.
- * Open to finding help early.
- * Laidback but focused.
-
- Dale
- * Pomodoro all the way.
- * I tend to struggle to long before seeking help.
- * Laidback but focused.
-
- ## Previous Project Experience
 Laura
- * DTR is important.
- * Wireframes early to guide the coding work.
- * Collaberation, switching drivers at pomodoro breaks.
- * Lack of communication, no DTR, or taking it seriously enough.
+* Believe in the pomodoro technique.
+* Open to finding help early.
+* Laidback but focused.
 
- Dale
- * In-person time was together better.
- * Clear expectations of time and communication
- * Lack of communication and too many "I'm sorries"
+Dale
+* Pomodoro all the way.
+* I tend to struggle to long before seeking help.
+* Laidback but focused.
 
- ## What do you need to do your best work
- Laura
- * In-person collaboration time at work location.
- * Set schedule.
- * Like starting an 8:00AM.
+## Previous Project Experience
+Laura
+* DTR is important.
+* Wireframes early to guide the coding work.
+* Collaberation, switching drivers at pomodoro breaks.
+* Lack of communication, no DTR, or taking it seriously enough.
 
- Dale
- * In-person collaboration time at work location.
- * Need some downtime.
- * We will get done what we can get done...
- * Respect timeliness
+Dale
+* In-person time was together better.
+* Clear expectations of time and communication
+* Lack of communication and too many "I'm sorries"
 
- ## What Scheduling Constraints
- * Target 7:15PM end-time daily.
+## What do you need to do your best work
+Laura
+* In-person collaboration time at work location.
+* Set schedule.
+* Like starting an 8:00AM.
 
- Laura
- * Friday after 5 is not available.
- * Saturday off day.
+Dale
+* In-person collaboration time at work location.
+* Need some downtime.
+* We will get done what we can get done...
+* Respect timeliness
 
- Dale
- * Nightly call at 7:30PM 30-45mins.
- * Sunday, meet mentor at 11:00AM at Blake for hour.
+## What Scheduling Constraints
+* Target 7:15PM end-time daily.
+
+Laura
+* Friday after 5 is not available.
+* Saturday off day.
+
+Dale
+* Nightly call at 7:30PM 30-45mins.
+* Sunday, meet mentor at 11:00AM at Blake for hour.
 
 ## Feedback Style
 Laura
