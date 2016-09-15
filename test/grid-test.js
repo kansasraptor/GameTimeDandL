@@ -31,6 +31,13 @@ describe('Grid', function() {
       assert.deepEqual(grid.tiles, []);
     });
 
+
+
+    
+
+    it.skip('should return the following sequence 0, 0, 0, 2',  );
+
+
     it.skip('should determine the key value to determine move direction');
 
     it.skip('should determine the starting position and direction of move from key value');
@@ -43,7 +50,7 @@ describe('Grid', function() {
 
     it.skip('should have a function that slides tiles to chosen direction');
 
-    it.skip('should ')
+
 
     it.skip('should create an array of all cells with null values');
 
