@@ -58,3 +58,5 @@ describe('Tile', function() {
     });
   });
 });
+
+//things the grid is calling on each tile 
