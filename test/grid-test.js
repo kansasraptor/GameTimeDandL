@@ -57,25 +57,26 @@ describe('Grid', function () {
     // assert.equal(targetCell, grid.cells[2]);
   });
 
-  it('should have a function that finds the value of cell based on the row and coumn values', function() {
+  it('should have a function that finds the value of cell based on the row and column values', function() {
     var grid = new Grid();
     grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
-    var row = 0;
+    debugger
+    // var row = 0;
     var column = 0;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 2);
-    var row = 0;
-    var column = 1;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 4);
-    var row = 0;
-    var column = 2;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, null);
-    var row = 0;
-    var column = 3;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 8);
+    var targetCell = grid.findCellValue(column);
+    assert.equal(targetCell.value, 2);
+    // var row = 0;
+    // var column = 1;
+    // var targetCell = grid.findCellValue(row, column);
+    // assert.equal(targetCell.value, 4);
+    // // var row = 0;
+    // var column = 2;
+    // var targetCell = grid.findCellValue(row, column);
+    // assert.equal(targetCell.value, null);
+    // // var row = 0;
+    // var column = 3;
+    // var targetCell = grid.findCellValue(row, column);
+    // assert.equal(targetCell.value, 8);
 
 
 
