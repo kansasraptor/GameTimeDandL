@@ -48,13 +48,37 @@ describe('Grid', function () {
   assert.isAtMost(num, 15);
  });
 
-it('should find a cell with a null value and assign it a value of 2', function () {
-  var grid = new Grid();
-  grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 0, value: 4}, {row: 0, column: 0, value: null, idCorrect: true}, {row: 0, column: 0, value: 8}];
-  var targetCell = grid.findRandomNullCell();
-  console.log(grid.cells);
-  assert.equal(targetCell.idCorrect, true);
-  // assert.equal(targetCell, grid.cells[2]);
-});
+  it('should find a cell with a null value and assign it a value of 2', function () {
+    var grid = new Grid();
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 0, value: 4}, {row: 0, column: 0, value: null, idCorrect: true}, {row: 0, column: 0, value: 8}];
+    var targetCell = grid.findRandomNullCell();
+    console.log(grid.cells);
+    assert.equal(targetCell.idCorrect, true);
+    // assert.equal(targetCell, grid.cells[2]);
+  });
 
+  it('should have a function that finds the value of cell based on the row and coumn values', function() {
+    var grid = new Grid();
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
+    var row = 0;
+    var column = 0;
+    var targetCell = grid.findCellValue(row, column);
+    assert.equal(tagetCell.value, 2);
+    var row = 0;
+    var column = 1;
+    var targetCell = grid.findCellValue(row, column);
+    assert.equal(tagetCell.value, 4);
+    var row = 0;
+    var column = 2;
+    var targetCell = grid.findCellValue(row, column);
+    assert.equal(tagetCell.value, null);
+    var row = 0;
+    var column = 3;
+    var targetCell = grid.findCellValue(row, column);
+    assert.equal(tagetCell.value, 8);
+
+
+
+
+  });
 });
