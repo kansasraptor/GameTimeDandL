@@ -113,7 +113,15 @@ describe('Grid', function () {
       {row: 0, column: 2, value: null},
       {row: 0, column: 3, value: 8}
     ];
+  });
 
-    
+  it('MoveUp', function() {
+    var grid = new Grid();
+    var row = 0;
+    var column = 0;
+    var rules = grid.moveUp(row, column);
+    console.log(rules);
+    assert.equal(rules[0].directionOne, 1);
+    assert.equal(rules[0].directionTwo, 1);
   });
 });
