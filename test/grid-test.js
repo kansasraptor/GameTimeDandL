@@ -105,26 +105,31 @@ describe('Grid', function () {
     });
   });
 
-  describe('Change cell values', function(){
-    var grid = new Grid();
-    grid.cells = [
-      {row: 0, column: 0, value: 2},
-      {row: 0, column: 1, value: 4},
-      {row: 0, column: 2, value: null},
-      {row: 0, column: 3, value: 8}
-    ];
-  });
 
   describe('Set rules for directions', function () {
     var grid = new Grid();
 
     it('should set the rules to moveDown', function (){
       var row = grid.rowsize;
-      console.log(row);
       var column = grid.columnsize;
-      console.log(column);
       var rules = grid.moveDown(row, column);
       assert.equal(rules[0].directionOne, -1);
+      assert.equal(rules[0].directionTwo, -1);
+    });
+
+    it('should set the rules to moveLeft', function (){
+      var row = grid.rowsize;
+      var column = 0;
+      var rules = grid.moveLeft(row, column);
+      assert.equal(rules[0].directionOne, -1);
+      assert.equal(rules[0].directionTwo, 1);
+    });
+
+    it('should set the rules to moveLeft', function (){
+      var row = grid.rowsize;
+      var column = 0;
+      var rules = grid.moveRight(row, column);
+      assert.equal(rules[0].directionOne, 1);
       assert.equal(rules[0].directionTwo, -1);
     });
 
@@ -136,4 +141,15 @@ describe('Grid', function () {
       assert.equal(rules[0].directionTwo, 1);
     });
   });
+
+  describe('Change cell values', function(){
+    var grid = new Grid();
+    grid.cells = [
+      {row: 0, column: 0, value: 2},
+      {row: 0, column: 1, value: 2},
+      {row: 0, column: 2, value: 0},
+      {row: 0, column: 3, value: 0},
+    ];
+  });
+
 });
