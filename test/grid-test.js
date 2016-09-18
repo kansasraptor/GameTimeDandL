@@ -50,35 +50,59 @@ describe('Grid', function () {
 
   it('should find a cell with a null value and assign it a value of 2', function () {
     var grid = new Grid();
-    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 0, value: 4}, {row: 0, column: 0, value: null, idCorrect: true}, {row: 0, column: 0, value: 8}];
-    var targetCell = grid.findRandomNullCell();
-    console.log(grid.cells);
-    assert.equal(targetCell.idCorrect, true);
-    // assert.equal(targetCell, grid.cells[2]);
+    grid.cells = [
+      {row: 0, column: 0, value: 2},
+      {row: 0, column: 0, value: 4},
+      {row: 0, column: 0, value: null},
+      {row: 0, column: 0, value: 8}
+    ];
   });
 
-  it('should have a function that finds the value of cell based on the row and coumn values', function() {
+  describe('Change cell values', function() {
+
     var grid = new Grid();
-    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
-    var row = 0;
-    var column = 0;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 2);
-    var row = 0;
-    var column = 1;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 4);
-    var row = 0;
-    var column = 2;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, null);
-    var row = 0;
-    var column = 3;
-    var targetCell = grid.findCellValue(row, column);
-    assert.equal(tagetCell.value, 8);
+    grid.cells = [
+      {row: 0, column: 0, value: 2},
+      {row: 0, column: 1, value: 4},
+      {row: 0, column: 2, value: null},
+      {row: 0, column: 3, value: 8}
+    ];
 
+    it('shoud be a function', function() {
+      assert.isFunction(grid.findCellValue);
+    });
 
+    it('should find the value of one cell with "row 0" and "column 0" and return the value "2"', function() {
+      var row = 0;
+      var column = 0;
+      var targetCell = grid.findCellValue(row, column);
+      assert.equal(targetCell.length, 1);
+      assert.equal(targetCell[0].value, 2);
+    });
 
+    it('should find the value of one cell with "row 0" and "column 1" and return the value "4"', function() {
+      var row = 0;
+      var column = 1;
+      var targetCell = grid.findCellValue(row, column);
+      assert.equal(targetCell.length, 1);
+      assert.equal(targetCell[0].value, 4);
+    });
+
+    it('should find the value of one cell with "row 0" and "column 2" and return the value "null"', function() {
+      var row = 0;
+      var column = 2;
+      var targetCell = grid.findCellValue(row, column);
+      assert.equal(targetCell.length, 1);
+      assert.equal(targetCell[0].value, null);
+    });
+
+    it('should find the value of one cell with "row 0" and "column 3" and return the value "8"', function() {
+      var row = 0;
+      var column = 3;
+      var targetCell = grid.findCellValue(row, column);
+      assert.equal(targetCell.length, 1);
+      assert.equal(targetCell[0].value, 8);
+    });
 
   });
 });
