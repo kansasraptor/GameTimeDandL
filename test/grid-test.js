@@ -52,33 +52,32 @@ describe('Grid', function () {
     var grid = new Grid();
     grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 0, value: 4}, {row: 0, column: 0, value: null, idCorrect: true}, {row: 0, column: 0, value: 8}];
     var targetCell = grid.findRandomNullCell();
-    console.log(grid.cells);
     assert.equal(targetCell.idCorrect, true);
-    // assert.equal(targetCell, grid.cells[2]);
   });
 
-  it('should have a function that finds the value of cell based on the row and column values', function() {
+  it('should find a cell by the cells "key" property value', function (){
+    var grid = new Grid();
+      grid.cells = [{row: 0, column: 0, value: 2, key: 0}, {row: 0, column: 0, value: 4, key: 1}, {row: 0, column: 0, value: null, key: 2}, {row: 0, column: 0, value: 8, key: 3}];
+      var targetCell = grid.findCellbyKey(0);
+      assert.equal(targetCell[0].value, 2);
+  });
+
+  it('should have a function that finds a cell based on the row and column values', function() {
     var grid = new Grid();
     grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
-    // var row = 0;
+    var row = 0;
     var column = 0;
-    var targetCell = grid.findCellValue(column);
-    assert.equal(targetCell, {row: 0, column: 0, value: 2});
-    // var row = 0;
-    // var column = 1;
-    // var targetCell = grid.findCellValue(row, column);
-    // assert.equal(targetCell.value, 4);
-    // // var row = 0;
-    // var column = 2;
-    // var targetCell = grid.findCellValue(row, column);
-    // assert.equal(targetCell.value, null);
-    // // var row = 0;
-    // var column = 3;
-    // var targetCell = grid.findCellValue(row, column);
-    // assert.equal(targetCell.value, 8);
-
-
-
-
+    var targetCell = grid.findCellByRowColumn(row, column);
+    assert.equal(targetCell[0].value, 2);
   });
+
+  it('should have a function that finds a cell based on the row and column values', function() {
+    var grid = new Grid();
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
+    var row = 0;
+    var column = 3;
+    var targetCell = grid.findCellByRowColumn(row, column);
+    assert.equal(targetCell[0].value, 8);
+  });
+
 });
