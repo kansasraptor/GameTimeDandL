@@ -21,22 +21,22 @@ describe('Grid', function () {
  it('should assign a value of "null" to each cell', function (){
    var grid = new Grid();
    var cells = grid.buildCells();
-   assert.deepEqual(grid.cells[0], {row: 0, column: 0, value: null});
-   assert.deepEqual(grid.cells[1], {row: 0, column: 1, value: null});
-   assert.deepEqual(grid.cells[2], {row: 0, column: 2, value: null});
-   assert.deepEqual(grid.cells[3], {row: 0, column: 3, value: null});
-   assert.deepEqual(grid.cells[4], {row: 1, column: 0, value: null});
-   assert.deepEqual(grid.cells[5], {row: 1, column: 1, value: null});
-   assert.deepEqual(grid.cells[6], {row: 1, column: 2, value: null});
-   assert.deepEqual(grid.cells[7], {row: 1, column: 3, value: null});
-   assert.deepEqual(grid.cells[8], {row: 2, column: 0, value: null});
-   assert.deepEqual(grid.cells[9], {row: 2, column: 1, value: null});
-   assert.deepEqual(grid.cells[10], {row: 2, column: 2, value: null});
-   assert.deepEqual(grid.cells[11], {row: 2, column: 3, value: null});
-   assert.deepEqual(grid.cells[12], {row: 3, column: 0, value: null});
-   assert.deepEqual(grid.cells[13], {row: 3, column: 1, value: null});
-   assert.deepEqual(grid.cells[14], {row: 3, column: 2, value: null});
-   assert.deepEqual(grid.cells[15], {row: 3, column: 3, value: null});
+   assert.deepEqual(grid.cells[0], {row: 0, column: 0, value: null, id: 0});
+   assert.deepEqual(grid.cells[1], {row: 0, column: 1, value: null, id: 1});
+   assert.deepEqual(grid.cells[2], {row: 0, column: 2, value: null, id: 2});
+   assert.deepEqual(grid.cells[3], {row: 0, column: 3, value: null, id: 3});
+   assert.deepEqual(grid.cells[4], {row: 1, column: 0, value: null, id: 4});
+   assert.deepEqual(grid.cells[5], {row: 1, column: 1, value: null, id: 5});
+   assert.deepEqual(grid.cells[6], {row: 1, column: 2, value: null, id: 6});
+   assert.deepEqual(grid.cells[7], {row: 1, column: 3, value: null, id: 7});
+   assert.deepEqual(grid.cells[8], {row: 2, column: 0, value: null, id: 8});
+   assert.deepEqual(grid.cells[9], {row: 2, column: 1, value: null, id: 9});
+   assert.deepEqual(grid.cells[10], {row: 2, column: 2, value: null, id: 10});
+   assert.deepEqual(grid.cells[11], {row: 2, column: 3, value: null, id: 11});
+   assert.deepEqual(grid.cells[12], {row: 3, column: 0, value: null, id: 12});
+   assert.deepEqual(grid.cells[13], {row: 3, column: 1, value: null, id: 13});
+   assert.deepEqual(grid.cells[14], {row: 3, column: 2, value: null, id: 14});
+   assert.deepEqual(grid.cells[15], {row: 3, column: 3, value: null, id: 15});
  });
 
  it('should have a function that finds one random number from 0 to 15', function () {
@@ -60,11 +60,10 @@ describe('Grid', function () {
   it('should have a function that finds the value of cell based on the row and column values', function() {
     var grid = new Grid();
     grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
-    debugger
     // var row = 0;
     var column = 0;
     var targetCell = grid.findCellValue(column);
-    assert.equal(targetCell.value, 2);
+    assert.equal(targetCell, {row: 0, column: 0, value: 2});
     // var row = 0;
     // var column = 1;
     // var targetCell = grid.findCellValue(row, column);
