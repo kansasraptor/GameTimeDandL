@@ -139,17 +139,42 @@ describe('Grid', function () {
       var rules = grid.moveUp(row, column);
       assert.equal(rules[0].directionOne, 1);
       assert.equal(rules[0].directionTwo, 1);
+      assert.equal(rules[0].endOne, grid.columnsize);
+      assert.equal(rules[0].endTwo, grid.rowsize);
     });
   });
 
-  describe('Change cell values', function(){
+  describe('Update cell values', function(){
     var grid = new Grid();
     grid.cells = [
       {row: 0, column: 0, value: 2},
       {row: 0, column: 1, value: 2},
-      {row: 0, column: 2, value: 0},
-      {row: 0, column: 3, value: 0},
+      {row: 0, column: 2, value: null},
+      {row: 0, column: 3, value: null},
+      {row: 1, column: 0, value: 2},
+      {row: 1, column: 1, value: 2},
+      {row: 1, column: 2, value: null},
+      {row: 1, column: 3, value: null},
+      {row: 2, column: 0, value: 2},
+      {row: 2, column: 1, value: 2},
+      {row: 2, column: 2, value: null},
+      {row: 2, column: 3, value: null},
+      {row: 3, column: 0, value: 2},
+      {row: 3, column: 1, value: 2},
+      {row: 3, column: 2, value: null},
+      {row: 3, column: 3, value: null}
     ];
+
+    it('shoud be a function', function() {
+      assert.isFunction(grid.updateCellValues);
+    });
+
+    it('Should change the values of the cells to reflect the move direction of moveUp', function (){
+      var row = 0;
+      var column = 0;
+      rules = grid.moveUp(row, column);
+      grid.updateCellValues(rules);
+    });
   });
 
 });
