@@ -115,4 +115,38 @@ describe('Grid', function () {
       assert.equal(rules[0].directionTwo, 1);
     });
   });
+
+  describe('Update cell values', function(){
+      var grid = new Grid();
+      grid.cells = [
+      {row: 0, column: 0, value: 2, key: 0},
+      {row: 0, column: 1, value: 2, key: 1},
+      {row: 0, column: 2, value: null, key: 2},
+      {row: 0, column: 3, value: null, key: 3},
+      {row: 1, column: 0, value: 2, key: 4},
+      {row: 1, column: 1, value: 2, key: 5},
+      {row: 1, column: 2, value: null, key: 6},
+      {row: 1, column: 3, value: null, key: 7},
+      {row: 2, column: 0, value: 2, key: 8},
+      {row: 2, column: 1, value: 2, key: 9},
+      {row: 2, column: 2, value: null, key: 10},
+      {row: 2, column: 3, value: null, key: 11},
+      {row: 3, column: 0, value: 2, key: 12},
+      {row: 3, column: 1, value: 2, key: 13},
+      {row: 3, column: 2, value: null, key: 14},
+      {row: 3, column: 3, value: null, key: 15}
+    ];
+
+    it('should be a function', function(){
+      assert.isFunction(grid.updateCellValues);
+    });
+
+    it('should return a "value" of 4 for "row" 0, "column" 0', function () {
+      var row = 0;
+      var column = 0;
+      var rules = grid.moveUp(row, column);
+      grid.updateCellValues(rules);
+      assert.equal(grid.cells[0].value, 4);
+    })
+  });
 });
