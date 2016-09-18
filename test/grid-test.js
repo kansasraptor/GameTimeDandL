@@ -115,13 +115,25 @@ describe('Grid', function () {
     ];
   });
 
-  it('MoveUp', function() {
+  describe('Set rules for directions', function () {
     var grid = new Grid();
-    var row = 0;
-    var column = 0;
-    var rules = grid.moveUp(row, column);
-    console.log(rules);
-    assert.equal(rules[0].directionOne, 1);
-    assert.equal(rules[0].directionTwo, 1);
+
+    it('should set the rules to moveDown', function (){
+      var row = grid.rowsize;
+      console.log(row);
+      var column = grid.columnsize;
+      console.log(column);
+      var rules = grid.moveDown(row, column);
+      assert.equal(rules[0].directionOne, -1);
+      assert.equal(rules[0].directionTwo, -1);
+    });
+
+    it('should set the rules to moveUp', function() {
+      var row = 0;
+      var column = 0;
+      var rules = grid.moveUp(row, column);
+      assert.equal(rules[0].directionOne, 1);
+      assert.equal(rules[0].directionTwo, 1);
+    });
   });
 });
