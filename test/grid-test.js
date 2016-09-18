@@ -50,61 +50,35 @@ describe('Grid', function () {
 
   it('should find a cell with a null value and assign it a value of 2', function () {
     var grid = new Grid();
-    grid.cells = [
-      {row: 0, column: 0, value: 2},
-      {row: 0, column: 0, value: 4},
-      {row: 0, column: 0, value: null},
-      {row: 0, column: 0, value: 8}
-    ];
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 0, value: 4}, {row: 0, column: 0, value: null, idCorrect: true}, {row: 0, column: 0, value: 8}];
+    var targetCell = grid.findRandomNullCell();
+    assert.equal(targetCell.idCorrect, true);
   });
 
-  describe('Find cell', function() {
-
+  it('should find a cell by the cells "key" property value', function (){
     var grid = new Grid();
-    grid.cells = [
-      {row: 0, column: 0, value: 2},
-      {row: 0, column: 1, value: 4},
-      {row: 0, column: 2, value: null},
-      {row: 0, column: 3, value: 8}
-    ];
-
-    it('shoud be a function', function() {
-      assert.isFunction(grid.findCellByRowColumn);
-    });
-
-    it('should find the value of one cell with "row 0" and "column 0" and return the value "2"', function() {
-      var row = 0;
-      var column = 0;
-      var targetCell = grid.findCellByRowColumn(row, column);
-      assert.equal(targetCell.length, 1);
+      grid.cells = [{row: 0, column: 0, value: 2, key: 0}, {row: 0, column: 0, value: 4, key: 1}, {row: 0, column: 0, value: null, key: 2}, {row: 0, column: 0, value: 8, key: 3}];
+      var targetCell = grid.findCellbyKey(0);
       assert.equal(targetCell[0].value, 2);
-    });
-
-    it('should find the value of one cell with "row 0" and "column 1" and return the value "4"', function() {
-      var row = 0;
-      var column = 1;
-      var targetCell = grid.findCellByRowColumn(row, column);
-      assert.equal(targetCell.length, 1);
-      assert.equal(targetCell[0].value, 4);
-    });
-
-    it('should find the value of one cell with "row 0" and "column 2" and return the value "null"', function() {
-      var row = 0;
-      var column = 2;
-      var targetCell = grid.findCellByRowColumn(row, column);
-      assert.equal(targetCell.length, 1);
-      assert.equal(targetCell[0].value, null);
-    });
-
-    it('should find the value of one cell with "row 0" and "column 3" and return the value "8"', function() {
-      var row = 0;
-      var column = 3;
-      var targetCell = grid.findCellByRowColumn(row, column);
-      assert.equal(targetCell.length, 1);
-      assert.equal(targetCell[0].value, 8);
-    });
   });
 
+  it('should have a function that finds a cell based on the row and column values', function() {
+    var grid = new Grid();
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
+    var row = 0;
+    var column = 0;
+    var targetCell = grid.findCellByRowColumn(row, column);
+    assert.equal(targetCell[0].value, 2);
+  });
+
+  it('should have a function that finds a cell based on the row and column values', function() {
+    var grid = new Grid();
+    grid.cells = [{row: 0, column: 0, value: 2}, {row: 0, column: 1, value: 4}, {row: 0, column: 2, value: null}, {row: 0, column: 3, value: 8}];
+    var row = 0;
+    var column = 3;
+    var targetCell = grid.findCellByRowColumn(row, column);
+    assert.equal(targetCell[0].value, 8);
+  });
 
   describe('Set rules for directions', function () {
     var grid = new Grid();
@@ -119,63 +93,69 @@ describe('Grid', function () {
 
     it('should set the rules to moveLeft', function (){
       var row = grid.rowsize;
-      var column = 0;
+      var column = grid.columnsize;
       var rules = grid.moveLeft(row, column);
       assert.equal(rules[0].directionOne, -1);
       assert.equal(rules[0].directionTwo, 1);
     });
 
-    it('should set the rules to moveLeft', function (){
+    it('should set the rules to moveRight', function (){
       var row = grid.rowsize;
-      var column = 0;
+      var column = grid.columnsize;
       var rules = grid.moveRight(row, column);
       assert.equal(rules[0].directionOne, 1);
       assert.equal(rules[0].directionTwo, -1);
     });
 
-    it('should set the rules to moveUp', function() {
-      var row = 0;
-      var column = 0;
+    it('should set the rules to moveUp', function (){
+      var row = grid.rowsize;
+      var column = grid.columnsize;
       var rules = grid.moveUp(row, column);
       assert.equal(rules[0].directionOne, 1);
       assert.equal(rules[0].directionTwo, 1);
-      assert.equal(rules[0].endOne, grid.columnsize);
-      assert.equal(rules[0].endTwo, grid.rowsize);
     });
   });
 
   describe('Update cell values', function(){
-    var grid = new Grid();
-    grid.cells = [
-      {row: 0, column: 0, value: 2},
-      {row: 0, column: 1, value: 2},
-      {row: 0, column: 2, value: null},
-      {row: 0, column: 3, value: null},
-      {row: 1, column: 0, value: 2},
-      {row: 1, column: 1, value: 2},
-      {row: 1, column: 2, value: null},
-      {row: 1, column: 3, value: null},
-      {row: 2, column: 0, value: 2},
-      {row: 2, column: 1, value: 2},
-      {row: 2, column: 2, value: null},
-      {row: 2, column: 3, value: null},
-      {row: 3, column: 0, value: 2},
-      {row: 3, column: 1, value: 2},
-      {row: 3, column: 2, value: null},
-      {row: 3, column: 3, value: null}
+      var grid = new Grid();
+      grid.cells = [
+      {row: 0, column: 0, value: 2, key: 0},
+      {row: 0, column: 1, value: 2, key: 1},
+      {row: 0, column: 2, value: null, key: 2},
+      {row: 0, column: 3, value: null, key: 3},
+      {row: 1, column: 0, value: 2, key: 4},
+      {row: 1, column: 1, value: 2, key: 5},
+      {row: 1, column: 2, value: null, key: 6},
+      {row: 1, column: 3, value: null, key: 7},
+      {row: 2, column: 0, value: 2, key: 8},
+      {row: 2, column: 1, value: 2, key: 9},
+      {row: 2, column: 2, value: null, key: 10},
+      {row: 2, column: 3, value: 4, key: 11},
+      {row: 3, column: 0, value: 2, key: 12},
+      {row: 3, column: 1, value: 2, key: 13},
+      {row: 3, column: 2, value: null, key: 14},
+      {row: 3, column: 3, value: 4, key: 15}
     ];
 
-    it('shoud be a function', function() {
+    it('should be a function', function(){
       assert.isFunction(grid.updateCellValues);
     });
 
-    it('Should change the values of the cells to reflect the move direction of moveUp', function (){
+    it('should return a "value" of 4 for "row" 0, "column" 0', function () {
       var row = 0;
       var column = 0;
-      rules = grid.moveUp(row, column);
+      var rules = grid.moveUp(row, column);
       grid.updateCellValues(rules);
-      // assert.equal(this.cells[0].value, 4);
-      // assert.equal(this.cells[1].value, null);
+      assert.equal(grid.cells[0].value, 4);
+      assert.equal(grid.cells[4].value, null);
+    });
+
+    it('should return a "value" of 8 for "row" 3, "column" 3', function () {
+      var row = 3;
+      var column = 3;
+      var rules = grid.moveDown(row, column);
+      grid.updateCellValues(rules);
+      assert.equal(grid.cells[15].value, 8);
     });
   });
 
