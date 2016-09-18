@@ -58,7 +58,7 @@ describe('Grid', function () {
     ];
   });
 
-  describe('Change cell values', function() {
+  describe('Find cell', function() {
 
     var grid = new Grid();
     grid.cells = [
@@ -69,13 +69,13 @@ describe('Grid', function () {
     ];
 
     it('shoud be a function', function() {
-      assert.isFunction(grid.findCellValue);
+      assert.isFunction(grid.findCell);
     });
 
     it('should find the value of one cell with "row 0" and "column 0" and return the value "2"', function() {
       var row = 0;
       var column = 0;
-      var targetCell = grid.findCellValue(row, column);
+      var targetCell = grid.findCell(row, column);
       assert.equal(targetCell.length, 1);
       assert.equal(targetCell[0].value, 2);
     });
@@ -83,7 +83,7 @@ describe('Grid', function () {
     it('should find the value of one cell with "row 0" and "column 1" and return the value "4"', function() {
       var row = 0;
       var column = 1;
-      var targetCell = grid.findCellValue(row, column);
+      var targetCell = grid.findCell(row, column);
       assert.equal(targetCell.length, 1);
       assert.equal(targetCell[0].value, 4);
     });
@@ -91,7 +91,7 @@ describe('Grid', function () {
     it('should find the value of one cell with "row 0" and "column 2" and return the value "null"', function() {
       var row = 0;
       var column = 2;
-      var targetCell = grid.findCellValue(row, column);
+      var targetCell = grid.findCell(row, column);
       assert.equal(targetCell.length, 1);
       assert.equal(targetCell[0].value, null);
     });
@@ -99,10 +99,21 @@ describe('Grid', function () {
     it('should find the value of one cell with "row 0" and "column 3" and return the value "8"', function() {
       var row = 0;
       var column = 3;
-      var targetCell = grid.findCellValue(row, column);
+      var targetCell = grid.findCell(row, column);
       assert.equal(targetCell.length, 1);
       assert.equal(targetCell[0].value, 8);
     });
+  });
 
+  describe('Change cell values', function(){
+    var grid = new Grid();
+    grid.cells = [
+      {row: 0, column: 0, value: 2},
+      {row: 0, column: 1, value: 4},
+      {row: 0, column: 2, value: null},
+      {row: 0, column: 3, value: 8}
+    ];
+
+    
   });
 });
