@@ -130,11 +130,11 @@ describe('Grid', function () {
       {row: 2, column: 0, value: 2, key: 8},
       {row: 2, column: 1, value: 2, key: 9},
       {row: 2, column: 2, value: null, key: 10},
-      {row: 2, column: 3, value: null, key: 11},
+      {row: 2, column: 3, value: 4, key: 11},
       {row: 3, column: 0, value: 2, key: 12},
       {row: 3, column: 1, value: 2, key: 13},
       {row: 3, column: 2, value: null, key: 14},
-      {row: 3, column: 3, value: null, key: 15}
+      {row: 3, column: 3, value: 4, key: 15}
     ];
 
     it('should be a function', function(){
@@ -147,6 +147,15 @@ describe('Grid', function () {
       var rules = grid.moveUp(row, column);
       grid.updateCellValues(rules);
       assert.equal(grid.cells[0].value, 4);
-    })
+      assert.equal(grid.cells[4].value, null);
+    });
+
+    it('should return a "value" of 8 for "row" 3, "column" 3', function () {
+      var row = 3;
+      var column = 3;
+      var rules = grid.moveDown(row, column);
+      grid.updateCellValues(rules);
+      assert.equal(grid.cells[15].value, 8);
+    });
   });
 });
