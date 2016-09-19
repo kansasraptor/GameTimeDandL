@@ -62,24 +62,20 @@ describe('Grid', function () {
     });
   });
 
-  it('should have a function that finds a column based on a column number', function () {
-    var grid = new Grid();
-    grid.cells = grid.buildCells();
-    columnNumber = 0;
-    column = grid.findByColumn(columnNumber);
-    assert.equal(column[2].row, 2);
-  });
-
-  it('should have a function that finds a row based on a row number', function () {
-    var grid = new Grid();
-    grid.cells = []
-    grid.buildCells(); // create new grid
-    rowNumber = 0; // we are at row 0
-    var row = grid.findByRow(rowNumber)
-    assert.equal(row[2].column, 2);
-  });
-
   describe('should have functionality to find cells by "row" and/or "column" postion or by "key" value', function () {
+
+    it('should have a function that finds a column based on a column number', function () {
+      var grid = new Grid();
+      grid.cell = [];
+      grid.buildCells();
+      columnNumber = 0;
+      column = grid.findByColumn(columnNumber);
+      assert.equal(column[0].row, 0);
+      assert.equal(column[1].row, 1);
+      assert.equal(column[2].row, 2);
+      assert.equal(column[3].row, 3);
+    });
+
     it('should find a cell by the cells "key" property value', function (){
       var grid = new Grid();
       grid.cells = [
@@ -92,6 +88,17 @@ describe('Grid', function () {
     });
 
 
+    it('should have a function that finds a row based on a row number', function () {
+      var grid = new Grid();
+      grid.cells = []
+      grid.buildCells(); // create new grid
+      rowNumber = 0; // we are at row 0
+      var row = grid.findByRow(rowNumber);
+      assert.equal(row[0].column, 0);
+      assert.equal(row[1].column, 1);
+      assert.equal(row[2].column, 2);
+      assert.equal(row[3].column, 3);
+    });
 
     it('should have a function that finds a cell based on the row and column values', function() {
       var grid = new Grid();
@@ -102,7 +109,7 @@ describe('Grid', function () {
         {row: 0, column: 3, value: 8}];
       var rowNumber = 0;
       var columnNumber = 0;
-      var targetCell = grid.findCellByRowColumn(row, column);
+      var targetCell = grid.findCellByRowColumn(rowNumber, columnNumber);
       assert.equal(targetCell[0].value, 2);
     });
 
@@ -115,7 +122,7 @@ describe('Grid', function () {
         {row: 0, column: 3, value: 8}];
       var rowNumber = 0;
       var columnNumber = 3;
-      var targetCell = grid.findCellByRowColumn(row, column);
+      var targetCell = grid.findCellByRowColumn(rowNumber, columnNumber);
       assert.equal(targetCell[0].value, 8);
     });
   });
@@ -124,35 +131,27 @@ describe('Grid', function () {
     var grid = new Grid();
 
     it('should set the rules to moveDown', function (){
-      var rowNumber = grid.rowsize;
-      var columnNumber = grid.columnsize;
-      var rules = grid.moveDown(row, column);
-      assert.equal(rules[0].directionOne, -1);
-      assert.equal(rules[0].directionTwo, -1);
+      var rules = grid.moveDown();
+      assert.equal(rules[0].originTopLeft, false);
+      assert.equal(rules[0].isColumn, true);
     });
 
     it('should set the rules to moveLeft', function (){
-      var rowNumber = grid.rowsize;
-      var columnNumber = grid.columnsize;
-      var rules = grid.moveLeft(row, column);
-      assert.equal(rules[0].directionOne, -1);
-      assert.equal(rules[0].directionTwo, 1);
+      var rules = grid.moveLeft();
+      assert.equal(rules[0].originTopLeft, true);
+      assert.equal(rules[0].isColumn, false);
     });
 
     it('should set the rules to moveRight', function (){
-      var rowNumber = grid.rowsize;
-      var columnNumber = grid.columnsize;
-      var rules = grid.moveRight(row, column);
-      assert.equal(rules[0].directionOne, 1);
-      assert.equal(rules[0].directionTwo, -1);
+      var rules = grid.moveRight();
+      assert.equal(rules[0].originTopLeft, false);
+      assert.equal(rules[0].isColumn, false);
     });
 
     it('should set the rules to moveUp', function (){
-      var rowNumber = grid.rowsize;
-      var columnNumber = grid.columnsize;
-      var rules = grid.moveUp(row, column);
-      assert.equal(rules[0].directionOne, 1);
-      assert.equal(rules[0].directionTwo, 1);
+      var rules = grid.moveUp();
+      assert.equal(rules[0].originTopLeft, true);
+      assert.equal(rules[0].isColumn, true);
     });
   });
 
